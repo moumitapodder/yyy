@@ -1,51 +1,30 @@
-ScrollReveal({ reset: true });
+const addToCartBtn = document.querySelector(".addToCart");
+// console.log("test");
 
-ScrollReveal().reveal(".header", {
-  reset: false
-});
+const addToCart = (e) => {
+  const button = e.target;
+  const parentElement = button.parentNode;
 
-ScrollReveal().reveal(".home", {
-  duration: 3000,
-  origin: "top",
-  distance: "400px",
-  easing: "cubic-bezier(0.5, 0, 0, 1)",
-  rotate: {
-    x: 20,
-    z: -10
-  }
-});
+  const price = parentElement.querySelector(".price").textContent.trim();
+  const productDesc = parentElement
+    .querySelector(".productDesc")
+    .textContent.trim();
 
-ScrollReveal().reveal(".products", {
-  duration: 5000,
-  move: 0
-});
+  const cartData = {
+    price: price,
+    productDesc: productDesc,
+  };
 
-ScrollReveal().reveal(".about", {
-  duration: 4000,
-  scale: 0.85
-});
+  console.log(cartData);
+  // const price = parentElement.querySelector(".price h1").textContent.trim();
+  // const productName = parentElement
+  //   .querySelector("p:nth-of-type(2)")
+  //   .textContent.trim();
+  // const imageSrc = parentElement.querySelector("img").getAttribute("src");
 
-ScrollReveal().reveal(".review", {
-  delay: 500,
-  duration: 2000,
-  rotate: {
-    x: 20,
-    z: 20
-  }
-});
+  // console.log("Price:", price);
+  // console.log("Product Name:", productName);
+  // console.log("Image Source:", imageSrc);
+};
 
-ScrollReveal().reveal(".products", {
-  duration: 3000,
-  origin: "left",
-  distance: "300px",
-  easing: "ease-in-out"
-});
-
-ScrollReveal().reveal(".About", {
-  duration: 2000,
-  origin: "bottom",
-  distance: "100px",
-  easing: "cubic-bezier(.37,.01,.74,1)",
-  opacity: 0.3,
-  scale: 0.5
-});
+addToCartBtn.addEventListener("click", addToCart);
